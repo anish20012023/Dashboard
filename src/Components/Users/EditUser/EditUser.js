@@ -26,21 +26,21 @@ function EditUser() {
         Edit User Profile
       </Typography>
       <Grid container>
-        <Grid item md={9}>
+        <Grid item md={9} >
           <form>
             {/* identity */}
             <Box className={classes.formBox}>
               <Typography>Identity</Typography>
               {/*first name */}
-              <Grid container >
-                <Grid item md={6}>
+              <Grid container  >
+                <Grid item md={6} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="fname">First Name</FormLabel>
                     <TextField id="fname" name="firstname" value={user.firstname} />
                   </FormControl>
                 </Grid>
                 {/* last name */}
-                <Grid item md={6}>
+                <Grid item md={6} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="lname">Last Name</FormLabel>
                     <TextField id="lname" name="lastname" value={user.lastname} />
@@ -48,7 +48,7 @@ function EditUser() {
                 </Grid>
 
                 {/* email */}
-                <Grid item md={6}>
+                <Grid item md={6} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="email">Email</FormLabel>
                     <TextField id="email" type="email" name="email" value={user.email} />
@@ -56,21 +56,21 @@ function EditUser() {
                 </Grid>
 
                 {/* phone number */}
-                <Grid item md={6}>
+                <Grid item md={6} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="phone">Contact Number</FormLabel>
                     <TextField id="phone" name="phone" value={user.phone} />
                   </FormControl>
                 </Grid>
                 {/* birthday */}
-                <Grid item md={4}>
+                <Grid item md={4} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="birthdate">Birthday</FormLabel>
                     <TextField id="birthdate" type="date" name="birthdate" value={user.birthdate} />
                   </FormControl>
                 </Grid>
                 {/* Gender */}
-                <Grid item md={4}>
+                <Grid item md={4} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel>Gender</FormLabel>
                     <RadioGroup value={user.gender} className="radiobtn">
@@ -80,7 +80,7 @@ function EditUser() {
                   </FormControl>
                 </Grid>
                 {/* age */}
-                <Grid item md={4}>
+                <Grid item md={4}xs={12} >
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="age">Age</FormLabel>
                     <TextField id="age" type="number" name="age" value={user.age} />
@@ -93,28 +93,28 @@ function EditUser() {
               <Typography>Address</Typography>
               <Grid container>
                 {/* house */}
-                <Grid item md={12}>
+                <Grid item md={12} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="address">Address</FormLabel>
                     <TextField id="address" name="address" value={user.userAdress.address} />
                   </FormControl>
                 </Grid>
                 {/* city */}
-                <Grid item md={4}>
+                <Grid item md={4} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="city">City</FormLabel>
                     <TextField id="city" name="city" value={user.userAdress.city} />
                   </FormControl>
                 </Grid>
                 {/* state */}
-                <Grid item md={4}>
+                <Grid item md={4} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="state">State</FormLabel>
                     <TextField id="state" name="state" value={user.userAdress.state} />
                   </FormControl>
                 </Grid>
                 {/* postalcode */}
-                <Grid item md={4}>
+                <Grid item md={4} xs={12}>
                   <FormControl className={classes.formControl}>
                     <FormLabel htmlFor="code">postalCode</FormLabel>
                     <TextField id="code" name="postalCode" value={user.userAdress.postalCode} />
@@ -132,7 +132,7 @@ function EditUser() {
             <Box className="overlay">
               <IconButton>
                 <EditIcon sx={{ color: "white" }} />
-                
+
               </IconButton>
             </Box>
             <Avatar className="avatar" src={user.image}></Avatar>

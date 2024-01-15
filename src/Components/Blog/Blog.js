@@ -76,11 +76,11 @@ function Blog() {
         <Header />
         <BlogCard />
       </Box>
-      {/* as xam ,a as */}
+
       <Grid container className={classes.root} spacing={3} my={10}>
         {/* all posts */}
         {allPost.map((post, index) => (
-          <Grid item md={4} key={index}>
+          <Grid item md={4} key={index} xs={12}>
             <Card elevation={2} className={classes.cardPost}>
               <CardHeader
                 avatar={<Avatar>{post.title[0]}</Avatar>}

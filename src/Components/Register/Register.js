@@ -1,13 +1,18 @@
-import { Box, Button, Container, FormControl, Grid, Paper, TextField, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Container, FormControl, Grid, IconButton, Paper, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useStyles } from "./Register.styles";
 import bckImg from "../../Images/register.png";
 import { Link } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import InputAdornment from "@mui/material/InputAdornment";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
+import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
+
 function Register() {
   const classes = useStyles();
+  const [visible, setVisible] = useState(false);
   return (
     <Container maxWidth="lg" className={classes.root}>
       <Grid container>
@@ -62,11 +67,23 @@ function Register() {
                 </Grid>
                 <Grid item md={12} xs={12}>
                   <FormControl>
-                    <TextField label="Password" type="password" />
+                    <TextField
+                      label="Password"
+                      type={visible ? "text" : "password"}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={() => setVisible(!visible)}>
+                              {visible ? <VisibilityOffRoundedIcon /> : <VisibilityRoundedIcon />}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
                   </FormControl>
                 </Grid>
                 <Grid item md={12} xs={12}>
-                  <Button variant="contained" className="registerBtn" >
+                  <Button variant="contained" className="registerBtn">
                     Register
                   </Button>
                 </Grid>

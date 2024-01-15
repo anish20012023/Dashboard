@@ -37,10 +37,11 @@ export const useStyles = makeStyles((theme) => ({
       width: "200px",
       zIndex: "1",
       borderRight: "1.5px solid rgba(0,0,0,.12)",
+      zIndex: 2,
     },
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   // display: "none",
+    // },
   },
   drawerLinks: {
     marginTop: "30px !important",
@@ -75,10 +76,9 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.lightBlue.lighter,
       borderRight: "3px solid",
       borderRightColor: theme.palette.primary.main,
-      "& .MuiTypography-root":{
-
+      "& .MuiTypography-root": {
         color: theme.palette.primary.main,
-      }
+      },
     },
   },
 
@@ -88,5 +88,24 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: "capitalize !important",
     height: "40px",
     fontWeight: "400",
+  },
+  // menu icon and  app logo
+  menuAndLogo: {
+    display: "flex",
+    alignItems: "center",
+
+    "& button": {
+      display: "none",
+      color: "white",
+      fontSize: theme.spacing(4),
+      [theme.breakpoints.down("md")]: {
+        display: "flex",
+      },
+    },
+    "& h6": {
+      [theme.breakpoints.down("md")]: {
+        display: "none",
+      },
+    },
   },
 }));

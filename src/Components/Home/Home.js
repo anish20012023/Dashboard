@@ -21,7 +21,6 @@ import {
   Typography,
 } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import LogoutIcon from "@mui/icons-material/Logout";
 import admin from "../../Images/admin.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -31,7 +30,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { router } from "../../Common/router";
 import { useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
-
+import { RiMenu3Line } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
 function Home() {
   const AllRoutes = router.routes[0].children;
   const [profileanchorEl, setProfileAnchorEl] = useState(null);
@@ -39,6 +39,7 @@ function Home() {
   const [notifyanchorEl, setNotifyAnchorEl] = useState(null);
   const [notifyOpen, setNotifyOpen] = useState(false);
   const [mode, setMode] = useState(false);
+  const [hamBurger, setHamBurger] = useState(false);
   const navigate = useNavigate();
 
   function handleMenu(e) {
@@ -55,9 +56,12 @@ function Home() {
       {/* nav bar */}
       <AppBar className={classes.AppBar} elevation={0}>
         <Toolbar className={classes.navbar}>
-          <Typography className={classes.hh} variant="h6" textTransform={"uppercase"}>
-            Admin Pannel
-          </Typography>
+          <Box className={classes.menuAndLogo}>
+            <IconButton onClick={()=>setHamBurger(!hamBurger)}>{hamBurger ? <IoClose /> : <RiMenu3Line />}</IconButton>
+            <Typography className={classes.hh} variant="h6" textTransform={"uppercase"}>
+              Admin Pannel
+            </Typography>
+          </Box>
           {/* right nav item */}
           <Box className={classes.navItems}>
             <IconButton onClick={() => setMode((prev) => !prev)}>
@@ -108,7 +112,7 @@ function Home() {
 
       {/* Drawer sidebar */}
 
-      <Drawer variant="permanent" className={classes.drawer}>
+      <Drawer variant="permanent" className={classes.drawer} sx={{display:{xs:!hamBurger?"none":"block", md:"block"}}}>
         <Toolbar />
         <Paper className="adminPaper" onClick={() => navigate("/")}>
           <ListItem>
