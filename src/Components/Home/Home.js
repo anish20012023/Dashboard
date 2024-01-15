@@ -5,7 +5,6 @@ import {
   Badge,
   Box,
   Button,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -57,7 +56,9 @@ function Home() {
       <AppBar className={classes.AppBar} elevation={0}>
         <Toolbar className={classes.navbar}>
           <Box className={classes.menuAndLogo}>
-            <IconButton onClick={()=>setHamBurger(!hamBurger)}>{hamBurger ? <IoClose /> : <RiMenu3Line />}</IconButton>
+            <IconButton onClick={() => setHamBurger(!hamBurger)}>
+              {hamBurger ? <IoClose /> : <RiMenu3Line />}
+            </IconButton>
             <Typography className={classes.hh} variant="h6" textTransform={"uppercase"}>
               Admin Pannel
             </Typography>
@@ -112,7 +113,11 @@ function Home() {
 
       {/* Drawer sidebar */}
 
-      <Drawer variant="permanent" className={classes.drawer} sx={{display:{xs:!hamBurger?"none":"block", md:"block"}}}>
+      <Drawer
+        variant="permanent"
+        className={classes.drawer}
+        sx={{ display: { xs: !hamBurger ? "none" : "block", md: "block" } }}
+      >
         <Toolbar />
         <Paper className="adminPaper" onClick={() => navigate("/")}>
           <ListItem>
@@ -132,7 +137,7 @@ function Home() {
             </ListItem>
           ))}
         </List>
-        <Divider />
+
         <Button
           endIcon={<AddIcon />}
           variant="contained"
