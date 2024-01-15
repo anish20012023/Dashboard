@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import {  createHashRouter } from "react-router-dom";
 import Blog from "../Components/Blog/Blog";
 import User from "../Components/Users/User";
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -12,7 +12,7 @@ import EditUser from "../Components/Users/EditUser/EditUser";
 import Register from "../Components/Register/Register";
 import WarningIcon from "@mui/icons-material/Warning";
 import NotFound from "../Components/Not Found/NotFound";
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
