@@ -8,11 +8,12 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     gap: "30px",
   },
+  paperBox: { display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" },
   paper: {
-    position: "relative",
     padding: "26px 24px",
     display: "flex",
     flexDirection: "column",
+    flexGrow: "1",
     gap: "5px",
 
     "& .cardHeader": {

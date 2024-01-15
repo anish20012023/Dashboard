@@ -9,6 +9,8 @@ import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import { useStyles } from "./Dashboard.styles";
 import DoughnutChart from "./Charts/DoughnutChart";
+import News from "./News/News";
+import UpdateTimeline from "./Timeline/UpdateTimeline";
 const statCard = [
   {
     title: "Budget",
@@ -47,36 +49,34 @@ function Dashboard() {
       <Box className={classes.root}>
         <Typography variant="h6">Hi, Welcome in Dashboard.</Typography>
         {/* stats- card */}
-        <Grid container spacing={3}>
+        <Box className={classes.paperBox}>
           {statCard.map((item, index) => (
-            <Grid item md={3} xs={12} key={index}>
-              <Paper className={classes.paper} elevation={2}>
-                <Box className="cardHeader">
-                  <Box className="box1">
-                    <Typography variant="body2" className="title">
-                      {item.title}
-                    </Typography>
-                    <Typography variant="h6" className="value">
-                      {item.value}
-                    </Typography>
-                  </Box>
-                  <Box className="box2">
-                    <Avatar className="icon" sx={{ backgroundColor: item.color }}>
-                      {item.icon}
-                    </Avatar>
-                  </Box>
+            <Paper className={classes.paper} elevation={2} key={index}>
+              <Box className="cardHeader">
+                <Box className="box1">
+                  <Typography variant="body2" className="title">
+                    {item.title}
+                  </Typography>
+                  <Typography variant="h6" className="value">
+                    {item.value}
+                  </Typography>
                 </Box>
-                <Typography variant="body2" className="arrowTypo">
-                  <span style={{ color: item.color }}>
-                    {item.arrow}
-                    {Math.floor(Math.random() * (30 - 10 + 1) + 10)}%
-                  </span>
-                  since last month
-                </Typography>
-              </Paper>
-            </Grid>
+                <Box className="box2">
+                  <Avatar className="icon" sx={{ backgroundColor: item.color }}>
+                    {item.icon}
+                  </Avatar>
+                </Box>
+              </Box>
+              <Typography variant="body2" className="arrowTypo">
+                <span style={{ color: item.color }}>
+                  {item.arrow}
+                  {Math.floor(Math.random() * (30 - 10 + 1) + 10)}%
+                </span>
+                since last month
+              </Typography>
+            </Paper>
           ))}
-        </Grid>
+        </Box>
 
         {/* post enagagement */}
         <Grid container spacing={3}>
@@ -99,6 +99,15 @@ function Dashboard() {
                 <DoughnutChart />
               </Box>
             </Paper>
+          </Grid>
+        </Grid>
+        {/* news and  timiline */}
+        <Grid container spacing={3}>
+          <Grid item md={7} xs={12}>
+            <News />
+          </Grid>
+          <Grid item md={5} xs={12}>
+            <UpdateTimeline  />
           </Grid>
         </Grid>
       </Box>
