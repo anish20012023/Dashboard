@@ -31,15 +31,18 @@ import { useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import { RiMenu3Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { ChangeMode } from "../../ModeSlice";
 function Home() {
   const AllRoutes = router.routes[0].children;
   const [profileanchorEl, setProfileAnchorEl] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [notifyanchorEl, setNotifyAnchorEl] = useState(null);
   const [notifyOpen, setNotifyOpen] = useState(false);
-  const [mode, setMode] = useState(false);
   const [hamBurger, setHamBurger] = useState(false);
   const navigate = useNavigate();
+  const dispatch=useDispatch()
+  const mode = useSelector((state) => state.mode.theme);
 
   function handleMenu(e) {
     setProfileAnchorEl(e.currentTarget);
@@ -65,7 +68,7 @@ function Home() {
           </Box>
           {/* right nav item */}
           <Box className={classes.navItems}>
-            <IconButton onClick={() => setMode((prev) => !prev)}>
+            <IconButton onClick={() => dispatch(ChangeMode())}>
               {mode ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
             <IconButton onClick={handleNotify} className={classes.notBtn}>

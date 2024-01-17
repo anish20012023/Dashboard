@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BarChart from "./Charts/BarChart";
 import { Avatar, Box, Container, Grid, Paper, Typography } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
@@ -11,6 +11,7 @@ import { useStyles } from "./Dashboard.styles";
 import DoughnutChart from "./Charts/DoughnutChart";
 import News from "./News/News";
 import UpdateTimeline from "./Timeline/UpdateTimeline";
+
 const statCard = [
   {
     title: "Budget",
@@ -43,6 +44,8 @@ const statCard = [
 ];
 
 function Dashboard() {
+ 
+
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
@@ -107,7 +110,7 @@ function Dashboard() {
             <News />
           </Grid>
           <Grid item md={5} xs={12}>
-            <UpdateTimeline  />
+            <UpdateTimeline />
           </Grid>
         </Grid>
       </Box>

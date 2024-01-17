@@ -118,6 +118,7 @@ function User() {
           loading={loading}
           rows={userData}
           columns={columns}
+          
           components={{
             toolbar: GridDataToolbar,
           }}
